@@ -115,8 +115,16 @@
 
         <script>
             $(function() {
-                $('form').on('submit', function () {
+                $('form').on('submit', function (event) {
                     var name = $('input[name="name"]').val();
+                    var email = $('input[name="email"]').val();
+                    var message = $('textarea[name="content"]').val();
+
+                    if (name == "" || email == "" || message == "") {
+                        alert('All the fields are required.');
+                        event.preventDefault();
+                        return false;
+                    }
 
                     $.ajax({
                         dataType: 'jsonp',
@@ -130,7 +138,7 @@
                         $('textarea[name="content"]').val('');
                         alert("Thank you "+name+", for contacting us");
                     });
-
+                    
                     return false;
                 });
 
