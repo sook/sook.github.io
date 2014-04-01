@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <title>Sook Apps</title>
         
         <meta charset="utf-8">
@@ -12,10 +11,8 @@
         <link rel="stylesheet" href="styles/normalize.css">
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/site.css">
-
-
-
     </head>
+
     <body>
         <div class="container">
             
@@ -44,7 +41,9 @@
                         Enterprise Apps on The Market.
                     </div>
 
-                
+                    <div class="iphone"></div>
+
+                </div>
             </div>
 
             <div class='section-2'>
@@ -83,6 +82,7 @@
             <div class='section-3' id="contact">
 
                 <div class="center">
+
                     <div class="half">
                         <h1>Contact Us</h1>
 
@@ -91,28 +91,50 @@
                     </div>
 
                     <div class="half">
-                        <form action="">
-                            <input type="text" placeholder="Your Name">
-                            <input type="email" placeholder="Your Email">
-                            <textarea rows="6" placeholder="Your proposal here"></textarea>
+                        <form action="http://getsimpleform.com/messages?form_api_token=5a4959e3598a31a099bed76c0d373681" method="post">
+                            <input type="text" placeholder="Your Name" name="name" required>
+                            <input type="email" placeholder="Your Email" name="email" required>
+                            <textarea rows="6" placeholder="Your proposal here" name="content" required></textarea>
                             <input type="submit" value="Send Us">
                         </form>
                     </div>
+
                 </div>
 
             </div>
 
             <div class='footer'>
-
-                <div class="center">
-                    Copyright © 2013 Sook Apps Inc. <br>
-                    A mobile app development company from San Diego.
-                </div>
-               
+                Copyright © 2013 Sook Apps Inc. <br>
+                A mobile app development company from San Diego.
             </div>
 
         </div>
 
         <script src="scripts/smooth-scroll.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+        <script>
+            $(function() {
+                $('form').on('submit', function () {
+                    var name = $('input[name="name"]').val();
+
+                    $.ajax({
+                        dataType: 'jsonp',
+                        url: "http://getsimpleform.com/messages/ajax?form_api_token=5a4959e3598a31a099bed76c0d373681",
+                        data: {
+                            name: name,
+                            email: $('input[name="email"]').val(),
+                            message: $('textarea[name="content"]').val()
+                        }
+                    }).done(function() {
+                        $('textarea[name="content"]').val('');
+                        alert("Thank you "+name+", for contacting us");
+                    });
+
+                    return false;
+                });
+
+            });
+        </script>
     </body>
 </html>
