@@ -54,7 +54,7 @@ a:hover {
     background: url(../images/bg.jpg) no-repeat center 0;
     background-size: cover;
     position: relative;
-     overflow: hidden;
+    overflow: hidden;
 }
 
     .section-1 .text {
@@ -87,7 +87,7 @@ a:hover {
     }
 
 .section-2 {
-    box-shadow: 0 -20px 100px rgba(0,0,0,0.5);
+    
     background-color: #fff;
     width: 100%;
     padding-bottom: 8.0rem;
