@@ -117,6 +117,13 @@
             $(function() {
                 $('form').on('submit', function () {
                     var name = $('input[name="name"]').val();
+                    var email = $('input[name="email"]').val();
+                    var message = $('textarea[name="content"]').val();
+
+                    if (name = "" || email = "" || message = "") {
+                        alert('All the fields are required.');
+                        return false;
+                    }
 
                     $.ajax({
                         dataType: 'jsonp',
