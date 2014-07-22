@@ -63,9 +63,9 @@ a:hover {
         font-weight: 300;
         color: #FFF;
         position: absolute;
-        bottom: 6.0rem;
+        top: 3.0rem;
         left: 3.0rem;
-        text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+        text-shadow: 0 2px 0 rgba(0,0,0,0.2);
         z-index:1;
        
     }
